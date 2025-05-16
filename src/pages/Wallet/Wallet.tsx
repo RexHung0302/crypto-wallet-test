@@ -17,9 +17,11 @@ const Wallet = () => {
 
   return (
     <div className={styles.wallet}>
-      <Header />
-      <WalletBalance />
-      <WalletFunctionButtons />
+      <section className={styles.walletHeader}>
+        <Header />
+        <WalletBalance />
+        <WalletFunctionButtons />
+      </section>
       <div className={styles.walletContent}>
         <RenderTabContent walletItems={walletItems} selectedTab={selectedTab} />
       </div>

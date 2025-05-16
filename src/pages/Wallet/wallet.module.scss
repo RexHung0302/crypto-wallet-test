@@ -8,6 +8,28 @@
   flex-direction: column;
 }
 
+.walletHeader {
+  position: relative;
+  overflow: hidden;
+  padding: var.$medium-padding;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 80%, rgb(255, 255, 0) 0%, rgb(255, 255, 0) 3px, transparent 3px),
+      radial-gradient(circle at 80% 45%, rgb(255, 0, 0) 0%, rgb(255, 0, 0) 3px, transparent 2px),
+      radial-gradient(circle at 90% 55%, rgb(73, 152, 243) 0%, rgb(73, 152, 243) 3px, transparent 2px),
+      radial-gradient(circle at 87% 72%, rgb(73, 152, 243) 0%, rgb(73, 152, 243) 3px, transparent 3px),
+      radial-gradient(circle at 8% 70%, rgb(73, 152, 243) 0%, rgb(73, 152, 243) 3px, transparent 3px),
+      radial-gradient(circle at 75% 90%, rgb(255, 0, 0) 0%, rgb(255, 0, 0) 3px, transparent 3px);
+  }
+}
+
 .walletContent {
   flex: 1;
   overflow-y: auto;

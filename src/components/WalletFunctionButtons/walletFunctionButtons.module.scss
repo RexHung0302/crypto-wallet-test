@@ -9,6 +9,10 @@
   max-width: 400px;
   margin: 0 auto;
   margin-bottom: var.$large-margin;
+
+  @media (max-width: var.$mobile-width) {
+    max-width: 200px;
+  }
 }
 
 .walletFunctionButton {
