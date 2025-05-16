@@ -6,6 +6,7 @@ import WalletList from "../../components/WalletList/WalletList";
 import type { WalletItem } from "../../types/wallet";
 import useWalletController from "./useWalletController";
 import styles from './wallet.module.scss';
+import empty from '../../assets/empty.svg';
 
 /**
  * @description Wallet page
@@ -32,7 +33,10 @@ const RenderTabContent = ({ walletItems, selectedTab }: { walletItems: WalletIte
     case 'Wallet':
       return <WalletList items={walletItems} />;
     case 'DeFi':
-      return <div>DeFi</div>;
+      return <div className={styles.DiFiContent}>
+        <img src={empty} alt="empty" />
+        <p>No data</p>
+      </div>;
   }
 };
 

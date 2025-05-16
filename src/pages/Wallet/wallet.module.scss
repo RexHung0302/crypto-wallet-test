@@ -19,3 +19,14 @@
   padding: var.$medium-padding;
   color: var.$normal-text-color;
 }
+
+.DiFiContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  color: var.$secondary-text-color;
+  font-weight: 500;
+}
