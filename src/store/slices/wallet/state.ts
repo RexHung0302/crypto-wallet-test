@@ -4,5 +4,6 @@ export const initialState: WalletState = {
   walletItems: [],
   liveRates: [],
   currencies: [],
+  totalUsdValue: 0,
   loading: false,
 };

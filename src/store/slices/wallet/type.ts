@@ -6,5 +6,6 @@ export interface WalletState {
   walletItems: WalletBalance[];
   liveRates: ExchangeRate[];
   currencies: Currency[];
+  totalUsdValue: number;
   loading: boolean;
 }

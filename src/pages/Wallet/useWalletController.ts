@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/store";
 import { getWalletBalance, getLiveRates, getCurrencies } from "../../store/slices/wallet/thunks";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { calculateUSDValue } from "../../utils/currency";
+import { setTotalUsdValue } from "../../store/slices/wallet";
 
 const useWalletController = () => {
   const dispatch = useAppDispatch();
@@ -53,6 +54,9 @@ const useWalletController = () => {
   ]);
   const { walletItems, liveRates, currencies } = useAppSelector((state) => state.wallet);
 
+  /**
+   * @description When walletItems, liveRates, currencies are updated, format the wallet items
+   */
   useEffect(() => {
     if (walletItems.length > 0 && liveRates.length > 0) {
       setFormatWalletItems(walletItems.map((item) => {
@@ -68,6 +72,14 @@ const useWalletController = () => {
       }));
     }
   }, [walletItems, liveRates, currencies]);
+
+  /**
+   * @description When walletItems, liveRates, currencies are updated, update the totalUsdValue
+   */
+  useEffect(() => {
+    const totalUsdValue = formatWalletItems.reduce((acc, item) => acc + item.usdValue, 0);
+    dispatch(setTotalUsdValue(totalUsdValue));
+  }, [dispatch, formatWalletItems]);
 
   /**
    * @description Get Currencies

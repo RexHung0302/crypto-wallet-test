@@ -15,3 +15,10 @@ export const setLoading = (state: WalletState, action: PayloadAction<boolean>) =
     loading: action.payload,
   };
 };
+
+export const setTotalUsdValue = (state: WalletState, action: PayloadAction<number>) => {
+  return {
+    ...state,
+    totalUsdValue: action.payload,
+  };
+};

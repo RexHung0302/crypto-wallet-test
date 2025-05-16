@@ -12,5 +12,5 @@ export const memberSlice = createSlice({
   extraReducers,
 });
 
-export const { setWalletItems, setLoading } = memberSlice.actions;
+export const { setWalletItems, setLoading, setTotalUsdValue } = memberSlice.actions;
 export default memberSlice.reducer;
