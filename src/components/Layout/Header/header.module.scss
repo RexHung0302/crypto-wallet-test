@@ -1,0 +1,17 @@
+@use '../../../style/_variables.scss' as var;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var.$medium-padding var.$large-padding;
+}
+
+.headerIcon {
+  font-size: 30px;
+
+  // Judge if the device is print
+  @media (hover: hover) {
+    cursor: pointer;
+  }
+}
