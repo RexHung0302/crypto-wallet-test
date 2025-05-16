@@ -2,6 +2,8 @@ import styles from './walletList.module.scss';
 import type { WalletItem } from '../../types/wallet';
 import logo from '../../assets/logo.png';
 import useWalletListController from './useWalletListController';
+import { useAppSelector } from '../../hooks/store';
+import Skeleton from '../Skeleton/Skeleton';
 
 interface WalletListProps {
   items: WalletItem[];
@@ -11,12 +13,16 @@ interface WalletListProps {
  * @description WalletList component
  * @returns {JSX.Element}
  */
-const WalletList = ({ items} : WalletListProps) => {
+const WalletList = ({ items } : WalletListProps) => {
+  const { loading } = useAppSelector((state) => state.wallet);
   const { imageErrors, handleImageError } = useWalletListController();
+
   return (
     <section className={styles.walletList}>
       <main className={styles.walletListContainer}>
-        {items.map((item) => (
+        {loading ? Array.from({ length: 3 }).map((_, index) => (
+          <Skeleton key={index} active={true} className={styles.walletItem} />
+        )) : items.map((item) => (
           <div key={item.currency} className={styles.walletItem}>
             <div className={styles.walletItemInfo}>
               <img 

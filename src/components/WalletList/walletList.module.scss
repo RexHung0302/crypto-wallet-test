@@ -21,8 +21,8 @@
   padding: var.$small-padding;
   background-color: var.$normal-bg-color;
   border-radius: var.$small-border-radius;
-  border: 2px solid #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 72px;
 }
 
 .walletItemInfo {
