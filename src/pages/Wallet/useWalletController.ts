@@ -3,6 +3,7 @@ import { WalletTab, type WalletItem } from "../../types/wallet";
 import { useAppDispatch, useAppSelector } from "../../hooks/store";
 import { getWalletBalance, getLiveRates, getCurrencies } from "../../store/slices/wallet/thunks";
 import { unwrapResult } from "@reduxjs/toolkit";
+import { calculateUSDValue } from "../../utils/currency";
 
 const useWalletController = () => {
   const dispatch = useAppDispatch();
@@ -55,15 +56,13 @@ const useWalletController = () => {
   useEffect(() => {
     if (walletItems.length > 0 && liveRates.length > 0) {
       setFormatWalletItems(walletItems.map((item) => {
-        // const liveRate = liveRates.find((rate) => rate.from_currency === item.currency);
         const currency = currencies.find((currency) => currency.code === item.currency);
+        const usdValue = calculateUSDValue(item.amount, item.currency, liveRates);
 
-        console.log(currency);
         return {
           ...item,
           name: currency?.name || item.currency,
-          // TODO: Need to calculate the USD value
-          usdValue: 999,
+          usdValue,
           icon: currency?.colorful_image_url || '',
         };
       }));
