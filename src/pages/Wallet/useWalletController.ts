@@ -52,7 +52,7 @@ const useWalletController = () => {
       usdValue: 0,
     }
   ]);
-  const { walletItems, liveRates, currencies } = useAppSelector((state) => state.wallet);
+  const { walletItems, liveRates, currencies, loading } = useAppSelector((state) => state.wallet);
 
   /**
    * @description When walletItems, liveRates, currencies are updated, format the wallet items
@@ -137,7 +137,10 @@ const useWalletController = () => {
   /**
    * @description Set the selected tab
    */
-  const handleSetSelectedTab = (tab: WalletTab) => setSelectedTab(tab);
+  const handleSetSelectedTab = (tab: WalletTab) => {
+    if (loading) return;
+    setSelectedTab(tab);
+  };
 
   return {
     selectedTab,
