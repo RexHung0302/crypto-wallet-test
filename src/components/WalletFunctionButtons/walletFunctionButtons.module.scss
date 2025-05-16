@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var.$large-gap;
-  max-width: 200px;
+  max-width: 400px;
   margin: 0 auto;
 }
 
@@ -15,6 +15,7 @@
   align-items: center;
   flex-direction: column;
   gap: var.$xsmall-gap;
+  margin: 0 var.$medium-margin;
 
   // Judge if the device is print
   @media (hover: hover) {
@@ -30,8 +31,8 @@
   border-radius: 100%;
   background-color: var.$secondary-bg-color;
   font-weight: 500;
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
 }
 
 .walletFunctionButtonIcon {
