@@ -1,7 +1,7 @@
 import styles from './walletList.module.scss';
 import type { WalletItem } from '../../types/wallet';
 import logo from '../../assets/logo.png';
-import { useEffect, useState } from 'react';
+import useWalletListController from './useWalletListController';
 
 interface WalletListProps {
   items: WalletItem[];
@@ -12,19 +12,7 @@ interface WalletListProps {
  * @returns {JSX.Element}
  */
 const WalletList = ({ items} : WalletListProps) => {
-  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
-
-  const handleImageError = (currency: string) => {
-    setImageErrors(prev => ({
-      ...prev,
-      [currency]: true
-    }));
-  };
-
-  useEffect(() => {
-    console.log('imageErrors', imageErrors);
-  }, [imageErrors]);
-
+  const { imageErrors, handleImageError } = useWalletListController();
   return (
     <section className={styles.walletList}>
       <main className={styles.walletListContainer}>
