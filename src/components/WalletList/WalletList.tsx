@@ -16,7 +16,6 @@ const WalletList = ({ items} : WalletListProps) => {
   return (
     <section className={styles.walletList}>
       <main className={styles.walletListContainer}>
-        {/* Will write wallet list here */}
         {items.map((item) => (
           <div key={item.currency} className={styles.walletItem}>
             <div className={styles.walletItemInfo}>
