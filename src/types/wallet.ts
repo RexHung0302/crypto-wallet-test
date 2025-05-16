@@ -27,3 +27,8 @@ export interface WalletItem {
   usdValue: number; // currency value in USD
   icon?: string; // currency icon
 }
+
+export enum WalletTab {
+  Wallet = 'Wallet',
+  DeFi = 'DeFi',
+}
