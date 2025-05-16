@@ -19,3 +19,11 @@ export interface ExchangeRate {
     rate: string;
   }[];
 }
+
+export interface WalletItem {
+  currency: string; // currency code
+  name: string; // currency name
+  amount: number; // currency amount
+  usdValue: number; // currency value in USD
+  icon?: string; // currency icon
+}
