@@ -1,15 +1,15 @@
-interface BasicAPIResponse<T> {
+interface BasicAPIResponse<T = unknown> {
   data?: T;
 }
 
-interface BasicAPIErrorResponse extends BasicAPIResponse<null> {
+export interface BasicAPIErrorResponse extends BasicAPIResponse<null> {
   ok: 'false';
   warning: string;
 }
 
-interface BasicAPISuccessResponse<T> extends BasicAPIResponse<T> {
+export interface BasicAPISuccessResponse<T = unknown> extends BasicAPIResponse<T> {
   ok: 'true';
   data: T;
 }
 
-export type APIResponse<T> = BasicAPIErrorResponse | BasicAPISuccessResponse<T>;
+export type APIResponse<T = unknown> = BasicAPIErrorResponse | BasicAPISuccessResponse<T>;

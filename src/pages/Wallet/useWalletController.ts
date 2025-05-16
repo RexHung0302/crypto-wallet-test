@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { WalletTab, type WalletItem } from "../../types/wallet";
+import { useAppDispatch, useAppSelector } from "../../hooks/store";
+import { getWalletBalance, getLiveRates, getCurrencies } from "../../store/slices/wallet/thunks";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 const useWalletController = () => {
+  const dispatch = useAppDispatch();
   const [selectedTab, setSelectedTab] = useState<WalletTab>(WalletTab.Wallet);
-  const [walletItems] = useState<Array<WalletItem>>([
+  const [formatWalletItems, setFormatWalletItems] = useState<Array<WalletItem>>([
     {
       currency: 'BAT',
       name: 'Basic Attention Token',
@@ -46,6 +50,78 @@ const useWalletController = () => {
       usdValue: 0,
     }
   ]);
+  const { walletItems, liveRates, currencies } = useAppSelector((state) => state.wallet);
+
+  useEffect(() => {
+    if (walletItems.length > 0 && liveRates.length > 0) {
+      setFormatWalletItems(walletItems.map((item) => {
+        // const liveRate = liveRates.find((rate) => rate.from_currency === item.currency);
+        const currency = currencies.find((currency) => currency.code === item.currency);
+
+        console.log(currency);
+        return {
+          ...item,
+          name: currency?.name || item.currency,
+          // TODO: Need to calculate the USD value
+          usdValue: 999,
+          icon: currency?.colorful_image_url || '',
+        };
+      }));
+    }
+  }, [walletItems, liveRates, currencies]);
+
+  /**
+   * @description Get Currencies
+   */
+  const handleGetCurrencies = useCallback(async () => {
+    dispatch(
+      getCurrencies()
+    )
+      .then(unwrapResult)
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [dispatch]);
+
+  /**
+   * @description Get Live Rates
+   */
+  const handleGetLiveRates = useCallback(async () => {
+    dispatch(
+      getLiveRates()
+    )
+      .then(unwrapResult)
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [dispatch]);
+
+  /**
+   * @description Get Wallet Balance
+   */
+  const handleGetWalletBalance = useCallback(async () => {
+    dispatch(
+      getWalletBalance()
+    )
+      .then(unwrapResult)
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [dispatch]);
+
+  const initial = useCallback(async () => {
+    setFormatWalletItems([]);
+    await handleGetCurrencies();
+    await handleGetLiveRates();
+    await handleGetWalletBalance();
+  }, [handleGetWalletBalance, handleGetLiveRates, handleGetCurrencies]);
+
+  /**
+   * @description Init to get wallet balance and live rates
+   */
+  useEffect(() => {
+    initial();
+  }, [initial]);
 
   /**
    * @description Set the selected tab
@@ -54,7 +130,7 @@ const useWalletController = () => {
 
   return {
     selectedTab,
-    walletItems,
+    walletItems: formatWalletItems,
     onSetSelectedTab: handleSetSelectedTab,
   };
 };
