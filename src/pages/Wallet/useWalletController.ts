@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { WalletItem } from "../../types/wallet";
 
 const useWalletController = () => {
+  const [selectedTab, setSelectedTab] = useState<'Wallet' | 'DeFi'>('Wallet');
   const [walletItems] = useState<Array<WalletItem>>([
     {
       currency: 'BAT',
@@ -46,8 +47,15 @@ const useWalletController = () => {
     }
   ]);
 
+  /**
+   * @description Set the selected tab
+   */
+  const handleSetSelectedTab = (tab: 'Wallet' | 'DeFi') => setSelectedTab(tab);
+
   return {
+    selectedTab,
     walletItems,
+    onSetSelectedTab: handleSetSelectedTab,
   };
 };
 

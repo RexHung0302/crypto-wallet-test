@@ -3,15 +3,6 @@
 .walletList {
   width: 100%;
   box-sizing: border-box;
-  background-color: var.$content-bg-color;
-  border-top-left-radius: var.$large-border-radius;
-  border-top-right-radius: var.$large-border-radius;
-  padding: var.$medium-padding;
-  color: var.$normal-text-color;
-  flex: 1;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
 }
 
 .walletListContainer {

@@ -1,0 +1,43 @@
+@use '../../../style/_variables.scss' as var;
+
+.footer {
+  background-color: #ffffff;
+  color: var.$secondary-text-color;
+  padding: var.$small-padding;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerButton {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // Judge if the device is print
+  @media (hover: hover) {
+    cursor: pointer;
+  }
+}
+
+.footerButtonIconDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var.$xsmall-gap;
+}
+
+.footerButtonIcon {
+  font-size: 18px;
+}
+
+.footerButtonText {
+  font-size: 14px;
+}
+
+.footerButtonActive {
+  color: var.$primary-text-color;
+  font-weight: 600;
+}
