@@ -9,11 +9,21 @@ $normal-bg-color: #ffffff;
 $content-bg-color: #f5faff;
 
 // Text Color Variables
-$primary-text-color: #ffffff;
+$primary-text-color: #081f3e;
 $normal-text-color: #000000;
+$secondary-text-color: #8e98a2;
 
 // Border Radius Variables
-$primary-border-radius: 20px;
+$small-border-radius: 10px;
+$medium-border-radius: 15px;
+$large-border-radius: 25px;
 
 // Padding Variables
-$primary-padding: 20px;
+$small-padding: 10px;
+$medium-padding: 15px;
+$large-padding: 25px;
+
+// Gap Variables
+$small-gap: 10px;
+$medium-gap: 15px;
+$large-gap: 25px;
