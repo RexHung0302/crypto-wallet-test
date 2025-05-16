@@ -1,0 +1,8 @@
+@use '../../style/_variables.scss' as var;
+
+.wallet {
+  background-color: var.$primary-bg-color;
+  width: 100vw;
+  height: 100vh;
+  color: var.$normal-text-color;
+}

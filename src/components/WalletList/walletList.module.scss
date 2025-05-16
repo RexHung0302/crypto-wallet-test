@@ -1,11 +1,12 @@
 @use '../../style/_variables.scss' as var;
 
 .walletList {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  height: 100%;
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  background-color: var.$primary-bg-color;
+  box-sizing: border-box;
+  background-color: var.$content-bg-color;
+  border-top-left-radius: var.$primary-border-radius;
+  border-top-right-radius: var.$primary-border-radius;
+  padding: var.$primary-padding;
 }

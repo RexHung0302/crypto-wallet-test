@@ -1,9 +1,11 @@
 import './App.css'
-import WalletList from './components/WalletList/WalletList'
+import Wallet from './pages/Wallet/Wallet'
 
 function App() {
   return (
-    <WalletList />
+    <div>
+      <Wallet />
+    </div>
   )
 }
 
