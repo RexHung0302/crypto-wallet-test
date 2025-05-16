@@ -1,5 +1,6 @@
 import Header from "../../components/Layout/Header/Header";
 import WalletBalance from "../../components/WalletBalance/WalletBalance";
+import WalletFunctionButtons from "../../components/WalletFunctionButtons/WalletFunctionButtons";
 import WalletList from "../../components/WalletList/WalletList";
 import useWalletController from "./useWalletController";
 import styles from './wallet.module.scss';
@@ -15,6 +16,7 @@ const Wallet = () => {
     <div className={styles.wallet}>
       <Header />
       <WalletBalance />
+      <WalletFunctionButtons />
       <WalletList items={walletItems} />
     </div>
   );

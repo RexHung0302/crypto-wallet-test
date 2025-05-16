@@ -1,0 +1,51 @@
+
+@use '../../style/variables' as var;
+
+.walletFunctionButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var.$large-gap;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.walletFunctionButton {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: var.$xsmall-gap;
+
+  // Judge if the device is print
+  @media (hover: hover) {
+    cursor: pointer;
+  }
+  
+}
+
+.walletFunctionButtonIconDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  background-color: var.$secondary-bg-color;
+  font-weight: 500;
+  width: 44px;
+  height: 44px;
+}
+
+.walletFunctionButtonIcon {
+  font-size: 26px;
+}
+
+.walletFunctionButtonText {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.walletFunctionButtonIconReceive {
+  transform: rotate(180deg);
+}
+
+
+
