@@ -1,0 +1,67 @@
+@use '../../style/_variables.scss' as var;
+
+.walletBalance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var.$large-padding;
+  flex-direction: column;
+}
+
+.walletBalanceLogoRow {
+  display: flex;
+  align-items: center;
+  gap: var.$small-gap;
+}
+
+.walletBalanceLogo {
+  width: 40px;
+  height: 40px;
+}
+
+.walletBalanceTitle {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.walletBalanceSeparator {
+  color: var.$secondary-text-color;
+}
+
+.walletBalanceSubtitle {
+  font-weight: 700;
+  font-size: 24px;
+  color: var.$secondary-text-color;
+  letter-spacing: var.$small-letter-spacing;
+
+  @media screen and (max-width: var.$tablet-width) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: var.$mobile-width) {
+    font-size: 12px;
+  }
+}
+
+.walletBalanceBalanceRow {
+  display: flex;
+  align-items: center;
+  gap: var.$small-gap;
+}
+
+.walletBalanceBalanceSymbol {
+  font-weight: 700;
+  font-size: 24px;
+  color: var.$tertiary-text-color;
+}
+
+.walletBalanceBalanceValue {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.walletBalanceBalanceCurrency {
+  font-weight: 700;
+  font-size: 24px;
+  color: var.$tertiary-text-color;
+}

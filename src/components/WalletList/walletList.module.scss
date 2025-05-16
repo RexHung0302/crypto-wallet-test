@@ -27,6 +27,8 @@
   padding: var.$small-padding;
   background-color: var.$normal-bg-color;
   border-radius: var.$small-border-radius;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .walletItemInfo {
@@ -36,8 +38,9 @@
 }
 
 .walletItemInfoIcon {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 .walletItemAmount {

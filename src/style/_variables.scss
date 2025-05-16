@@ -4,14 +4,15 @@ $tablet-width: 768px;
 $desktop-width: 1024px;
 
 // BG Color Variables
-$primary-bg-color: #081f3e;
+$primary-bg-color: #03316C;
 $normal-bg-color: #ffffff;
 $content-bg-color: #f5faff;
 
 // Text Color Variables
-$primary-text-color: #081f3e;
+$primary-text-color: #03316C;
 $normal-text-color: #000000;
 $secondary-text-color: #8e98a2;
+$tertiary-text-color: #757575;
 
 // Border Radius Variables
 $small-border-radius: 10px;
@@ -27,3 +28,8 @@ $large-padding: 25px;
 $small-gap: 10px;
 $medium-gap: 15px;
 $large-gap: 25px;
+
+// Letter Spacing Variables px
+$small-letter-spacing: 0.05em;
+$medium-letter-spacing: 0.1em;
+$large-letter-spacing: 0.2em;
