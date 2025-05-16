@@ -1,54 +1,29 @@
-# React + TypeScript + Vite
+# Crypto Wallet Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[En](README.md) | [繁中](README-hk.md) | [簡中](README-cn.md)
 
-Currently, two official plugins are available:
+This is an interview coding test
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![demo gif](./demo.gif)
 
-## Expanding the ESLint configuration
+## Operating Environment
+* Chrome v49+ or Firefox v45+ or Safari v9+
+* Node v22+
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Key Dependencies
+- [react-icons](https://github.com/react-icons/react-icons/actions)
+- [sass](https://github.com/sass/sass)
+- [clsx](https://github.com/lukeed/clsx)
+  
+## Project Structure
+- components -> Location for storing components
+- hooks -> Location for storing hooks, currently only contains Redux hooks to avoid repetitive type checking
+- pages -> Pages composed of components
+- store -> Location for storing Redux and thunks
+- services -> Layer that determines which service to use for data fetching
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Architecture Philosophy
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Separation of pages and logic: Pages are purely rendered using `.tsx`, while business logic is handled in `useXXXController.ts`, making it easier to implement testing later
+- In business logic, after dispatching asynchronous calls to Store, the Service layer decides whether to fetch from local storage, Mock data, or eventually connect to actual backend using axios
+- After retrieving data, it's asynchronously inserted through `extraReducers.ts`, ultimately driving UI changes. Any component listening to Redux will automatically update
