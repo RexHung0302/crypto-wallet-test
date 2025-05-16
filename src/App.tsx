@@ -3,9 +3,7 @@ import WalletList from './components/WalletList/WalletList'
 
 function App() {
   return (
-    <div>
-      <WalletList />
-    </div>
+    <WalletList />
   )
 }
 

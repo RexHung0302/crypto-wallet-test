@@ -1,8 +1,19 @@
+import styles from './walletList.module.scss';
+
+/**
+ * @description WalletList component
+ * @returns {JSX.Element}
+ */
 const WalletList = () => {
   return (
-    <div>
-      <h1>Wallet List</h1>
-    </div>
+    <section className={styles.walletList}>
+      <header>
+        <h1>Wallet List</h1>
+      </header>
+      <main>
+        {/* Will write wallet list here */}
+      </main>
+    </section>
   );
 };
 
