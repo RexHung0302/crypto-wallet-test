@@ -3,7 +3,7 @@ import Wallet from './pages/Wallet/Wallet'
 
 function App() {
   return (
-    <div>
+    <div className='app'>
       <Wallet />
     </div>
   )
