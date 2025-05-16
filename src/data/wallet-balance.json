@@ -1,0 +1,18 @@
+{
+    "ok": true,
+    "warning": "",
+    "wallet": [
+        {
+            "currency": "BTC",
+            "amount": 1.4
+        },
+        {
+            "currency": "ETH",
+            "amount": 20.3
+        },
+        {
+            "currency": "CRO",
+            "amount": 259.1
+        }
+    ]
+}
